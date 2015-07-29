@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   include ApplicationHelper
 
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,   only: [:destroy]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_action :correct_user,   only: [:edit, :update]
+  before_action :admin_user,   only: [:destroy]
 
   def following
     @title = "Following"
